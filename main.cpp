@@ -1,6 +1,9 @@
 #include <iostream>
 #include "DoublyLinkedList.h"
+#include "Queue.h"
 #include "SingleLinkedList.h"
+#include "Stack.h"
+#include "InputRestrictedQueue.h"
 
 int main()
 {
@@ -97,4 +100,39 @@ int main()
     {
         cout << "Exception: " << e.what() << endl;
     }
+
+    Queue<int> queue(3);
+    queue.Enqueue(1);
+    queue.Enqueue(2);
+    queue.Enqueue(3);
+    cout << "\n===== Queue Section =====" << endl;
+    cout << "Initial front element: " << queue.Peek() << endl;
+    cout << "Element dequeued: " << queue.Dequeue() << endl;
+    cout << "New front element: " << queue.Peek() << endl;
+
+
+    Stack<string> stack;
+    stack.Push("Bonjour,");
+    stack.Push(" mes amis!");
+    cout << "\n===== Stack Section =====" << endl;
+    cout << "Top element: " << stack.Peek() << endl;
+    cout << "Pop: " << stack.Pop() << endl;
+    cout << "Top element after pop: " << stack.Peek() << endl;
+
+    InputRestrictedQueue<string> q;
+    cout << "\n===== Input Restricted Queue Section =====" << endl;
+    q.enqueueRear("tarantino");
+    q.enqueueRear("nolan");
+    q.enqueueRear("scorsese");
+    cout << "Queue after adding elements at the back: " << endl;
+    q.display();
+
+    q.dequeueFront();
+    cout << "Queue after removing front: " << endl;
+    q.display();
+
+    q.dequeueRear();
+    cout << "Queue after removing back: " << endl;
+    q.display();
+
 }
